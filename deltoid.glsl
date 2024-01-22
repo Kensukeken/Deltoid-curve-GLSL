@@ -14,7 +14,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
     uv.x *= iResolution.x / iResolution.y;
     uv = mat2(vec2(cos(timer),-sin(timer)),vec2(sin(timer),cos(timer)))*uv;
 
-    float d = deltoidCurve(uv, 0.5);
+    float d = deltoidCurve(uv, abs(sin(iTime)));
     vec3 col = d > 0.5 ? vec3(0,0.5,0.5) : vec3(0,1,1);
     
     fragColor = vec4(col,1.0);
